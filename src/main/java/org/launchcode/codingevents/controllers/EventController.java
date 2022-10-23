@@ -1,4 +1,4 @@
-//Teresa Tull worked on this on 10-22-2022 ch 13 work
+//Teresa Tull worked on this on 10-22-2022 ch 13 work and exercises
 
 package org.launchcode.codingevents.controllers;
 
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -19,7 +20,6 @@ import java.util.List;
 @RequestMapping("events")
 public class EventController {
 
-    //added for create
     private static List<String> events = new ArrayList<>();
 
     @GetMapping
@@ -29,14 +29,20 @@ public class EventController {
 //        events.add("Strange Loop");
 //        events.add("Apple WWDC");
 //        events.add("SpringOne Platform");
-      //above is taken out for create
-         model.addAttribute("events", events);
-         return "events/index";
+        //above is taken out for create exercise wanted a hashmap
+        HashMap<String, String> events = new HashMap<>();
+        events.put("Menteaship", "A fun meetup for connecting with mentors");
+        events.put("Code With Pride", "A fun meetup sponsored by LaunchCode");
+        events.put("Javascripty", "An imaginary meetup for Javascript developers");
+
+        model.addAttribute("title", "All Events");
+        model.addAttribute("events", events);
+        return "events/index";
     }
 
-    //lives at /events/create
     @GetMapping("create")
-    public String renderCreateEventForm(){
+    public String renderCreateEventForm(Model model) {
+        model.addAttribute("title", "Create Event");
         return "events/create";
     }
 
