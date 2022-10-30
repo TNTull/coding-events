@@ -1,18 +1,22 @@
-<!--Teresa Tull worked on this on 10-22-2022 ch 13 work and exercises-->
+<!-- Teresa Tull worked on this on 10-22-2022 ch 13 work and exercises -->
+<!-- 10-24-2022 work on ch 14 -->
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head"></head>
 <body class="container">
 
-<h1></h1>
+<header th:replace="fragments :: header"></header>
 
-<nav th:replace="fragments :: header"></nav>
-
-<form method="post" action="/events/create">
+<form method="post">
     <div class="form-group">
         <label>Name
             <input type="text" name="eventName" class="form-control">
+        </label>
+    </div>
+    <div class="form-group">
+        <label>
+            <input type="text" name="eventDescription" class="form-control">
         </label>
     </div>
     <div class="form-group">
