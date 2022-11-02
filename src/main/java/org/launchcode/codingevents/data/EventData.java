@@ -1,4 +1,5 @@
 // Teresa Tull created this on 10-24-2022 work on ch 14
+// 10-30-2022 work on ch 15
 
 package org.launchcode.codingevents.data;
 
@@ -23,7 +24,7 @@ public class EventData {
     public static void add(Event event) {
         events.put(event.getId(), event);
     }
-    
+
     public static void remove(int id) {
         events.remove(id);
     }
