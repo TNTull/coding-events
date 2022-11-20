@@ -2,6 +2,7 @@
 <!-- 10-24-2022 work on ch 14 -->
 <!-- 10-30-2022 work on ch 15 -->
 <!-- 11-2-2022 work on ch 16 -->
+<!-- 11-13-2022 work on ch 17 -->
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
@@ -19,22 +20,22 @@ this is a generic mgs and below will provide specific msg -->
             <!-- <input type="text" name="eventName" class="form-control">
             all 3 items were the same way and changed in ch 15-->
             <input th:field="${event.name}" class="form-control">
-            <p class="error" th:errors="${event.name}"></p>
         </label>
+        <p class="error" th:errors="${event.name}"></p>
     </div>
 
     <div class="form-group">
         <label>Description
             <input th:field="${event.description}" class="form-control">
-            <p class="error" th:errors="${event.description}"></p>
         </label>
+        <p class="error" th:errors="${event.description}"></p>
     </div>
 
     <div class="form-group">
         <label>Contact Email
             <input th:field="${event.contactEmail}" class="form-control">
-            <p class="error" th:errors="${event.contactEmail}"></p>
         </label>
+        <p class="error" th:errors="${event.contactEmail}"></p>
     </div>
 
     <div class="form-group">
