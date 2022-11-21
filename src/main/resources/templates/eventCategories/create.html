@@ -1,28 +1,23 @@
-<!-- 11-19-2022 work on ch 17 and exercise -->
+<!-- 11-19-2022 work on ch 17 exercise and studio -->
 
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
 <body class="container">
-<meta charset="UTF-8"/>
+
 <header th:replace="fragments :: header"></header>
 
-
-<title></title>
-
-
-<div class="form-group">
-    <label>Category Name
-        <!-- <input type="text" name="eventName" class="form-control">
-        all 3 items were the same way and changed in ch 15-->
-        <input th:field="${category.name}" class="form-control">
-    </label>
-    <p class="error" th:errors="${category.name}"></p>
-</div>
-
-<div class="form-group">
-    <input type="submit" value="Create Category" class="btn btn-success">
-</div>
+<form method="post">
+    <div class="form-group">
+        <label>Name
+            <input th:field="${eventCategory.name}" class="form-control">
+        </label>
+        <span th:errors="${eventCategory.name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-success">
+    </div>
+</form>
 
 </body>
 </html>

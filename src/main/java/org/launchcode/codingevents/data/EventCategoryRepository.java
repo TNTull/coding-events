@@ -1,4 +1,4 @@
-// Teresa Tull worked on this on 11-19-2022 ch 17 work and exercise
+// Teresa Tull worked on this on 11-19-2022 ch 17 work, exercise, and studio
 
 package org.launchcode.codingevents.data;
 

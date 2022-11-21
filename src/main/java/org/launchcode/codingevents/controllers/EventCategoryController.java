@@ -1,12 +1,9 @@
-// Teresa Tull worked on this on 11-19-2022 ch 17 work and exercise
+// Teresa Tull worked on this on 11-19-2022 ch 17 work, exercise, and studio
 
 package org.launchcode.codingevents.controllers;
 
 import org.launchcode.codingevents.data.EventCategoryRepository;
-import org.launchcode.codingevents.data.EventRepository;
-import org.launchcode.codingevents.models.Event;
 import org.launchcode.codingevents.models.EventCategory;
-import org.launchcode.codingevents.models.EventType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,8 +32,7 @@ public class EventCategoryController {
     @GetMapping("create")
     public String renderCreateEventCategoryForm(Model model) {
         model.addAttribute("title", "Create Category");
-        model.addAttribute("category", new EventCategory());
-//        model.addAttribute("types", EventType.values());
+        model.addAttribute(new EventCategory());
         return "eventCategories/create";
     }
 
@@ -52,6 +48,5 @@ public class EventCategoryController {
         eventCategoryRepository.save(eventCategory);
         return "redirect:";
     }
-
 
 }

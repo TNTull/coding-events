@@ -2,7 +2,7 @@
 <!-- 10-24-2022 work on ch 14 -->
 <!-- 10-30-2022 work on ch 15 -->
 <!-- 11-2-2022 work on ch 16 -->
-<!-- 11-13-2022 work on ch 17 -->
+<!-- 11-13-2022 work on ch 17 plus exercise and studio -->
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
@@ -11,8 +11,6 @@
 
 
 <header th:replace="fragments :: header"></header>
-
-<!-- <p th:unless="${events} and ${events.size()}">No events!</p> -->
 
 <table class="table table-striped">
     <thread>
@@ -30,10 +28,8 @@
         <td th:text="${event.description}"></td>
         <td th:text="${event.contactEmail}"></td>
         <td th:text="${event.type.displayName}"></td>
-        <!-- <td th:replace="fragments :: address"></td> -->
     </tr>
 </table>
-
 
 </body>
 </html>
