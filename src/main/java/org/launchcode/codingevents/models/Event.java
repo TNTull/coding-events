@@ -2,14 +2,17 @@
 // 10-30-2022 work on ch 15 and exercises
 // 11-2-2022 work on ch 16
 // 11-13-2022 work on ch 17 plus exercise and studio
+// 11-20-2022 work on ch 18
 
 package org.launchcode.codingevents.models;
 
-import javax.persistence.Entity;
-import javax.validation.constraints.Email;
+import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Event extends AbstractEntity {
@@ -17,19 +20,22 @@ public class Event extends AbstractEntity {
     @NotBlank(message = "Name is required")
     @Size(min = 3, max = 50, message = "Name needs to be between 3 and 50 characters.")
     private String name;
-    @Size(max = 500, message = "Description too long.")
-    private String description;
-    @NotBlank(message = "Email is required")
-    @Email(message = "Invalid email. Try again.")
-    private String contactEmail;
 
-    private EventType type;
+    @OneToOne(cascade = CascadeType.ALL)
+    @Valid
+    @NotNull
+    private EventDetails eventDetails;
 
-    public Event(String name, String description, String contactEmail, EventType type) {
+    @ManyToOne
+    @NotNull(message = "Category is required")
+    private EventCategory eventCategory;
+
+    @ManyToMany
+    private final List<Tag> tags = new ArrayList<>();
+
+    public Event(String name, EventCategory eventCategory) {
         this.name = name;
-        this.description = description;
-        this.contactEmail = contactEmail;
-        this.type = type;
+        this.eventCategory = eventCategory;
     }
 
     public Event() {
@@ -43,28 +49,28 @@ public class Event extends AbstractEntity {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
+    public EventCategory getEventCategory() {
+        return eventCategory;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setEventCategory(EventCategory eventCategory) {
+        this.eventCategory = eventCategory;
     }
 
-    public String getContactEmail() {
-        return contactEmail;
+    public EventDetails getEventDetails() {
+        return eventDetails;
     }
 
-    public void setContactEmail(String contactEmail) {
-        this.contactEmail = contactEmail;
+    public void setEventDetails(EventDetails eventDetails) {
+        this.eventDetails = eventDetails;
     }
 
-    public EventType getType() {
-        return type;
+    public List<Tag> getTags() {
+        return tags;
     }
 
-    public void setType(EventType type) {
-        this.type = type;
+    public void addTag(Tag tag) {
+        this.tags.add(tag);
     }
 
     @Override

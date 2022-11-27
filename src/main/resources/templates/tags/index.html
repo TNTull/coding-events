@@ -1,5 +1,4 @@
-<!-- 11-19-2022 work on ch 17 exercise and studio -->
-<!-- 11-20-2022 work on ch 18 -->
+<!-- Teresa Tull worked on this on 11-24-2022 ch 18-->
 
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org/">
@@ -11,11 +10,11 @@
 <table class="table table-striped">
     <thead>
     <tr>
-        <th>Category Name</th>
+        <th>Tag Name</th>
     </tr>
     </thead>
-    <tr th:each="category : ${categories}">
-        <td><a th:text="${category.name}" th:href="'/events?categoryId=' + ${category.id}"></a></td>
+    <tr th:each="tag : ${tags}">
+        <td th:text="${tag.displayName}"></td>
     </tr>
 
 </table>
